@@ -31,7 +31,7 @@ while(stop_val>min_variance)
     Jo = Jx(pop);
     hold on;
     grid minor;
-    title('The cost function');
+    title('Genetic Algorithem');
     xlabel('x');
     ylabel('J(x)');
 
@@ -81,7 +81,7 @@ while(stop_val>min_variance)
     
     stop_val = var(pop);            % Stopping criteria defined as lesser variance
     ittr_count = ittr_count + 1 ;
-    pause(0.25)
+    pause(0.15)
 end
 
 fprintf('Local Minima : %.4f found in %d itterations\n',min(costF(Jx(pop),'min')),ittr_count);

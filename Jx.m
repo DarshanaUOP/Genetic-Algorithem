@@ -1,4 +1,6 @@
+% The function
+
 function Jo = Jx(x)
-    pop = x;
-    Jo = 3*pop.^2 + 0.5*pop.^3 - 40*pop +40*cos(pi*pop);
+    X = x;
+    Jo = 3*X.^2 + 0.5*X.^3 - 40*X +40*cos(pi*X);
 end

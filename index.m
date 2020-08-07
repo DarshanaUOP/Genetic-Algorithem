@@ -22,7 +22,7 @@ numOfPop = 8;
 
 pop = round(rand(1,numOfPop)*10,1);     % generate initial population
 
-for z = 1:20
+for z = 1:50
     figure(1);
     plot(x,J)
     Jo = Jx(pop);
@@ -33,7 +33,7 @@ for z = 1:20
     hold off;
     % Meting pool
 
-    csf = costF(Jo);
+    csf = costF(Jo,'min');
     
     % stem(pop,csf)
     prob_weight = csf/sum(csf);
@@ -71,9 +71,9 @@ for z = 1:20
 
     % Mutuation
     intermediate_Jo = Jx(intermediate_pop);
-    intermediate_csf = costF(intermediate_Jo);
+    intermediate_csf = costF(intermediate_Jo,'min');
     intermediate_csf_sort = sort(intermediate_csf,'descend');
-    pop = intermediate_csf_sort(1:length(intermediate_csf_sort)/2); % remove less cost values
+    pop = intermediate_csf_sort(1:length(intermediate_csf_sort)/2); % remove less costie values
 
     pause(1)
 end

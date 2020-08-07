@@ -1,4 +1,7 @@
+% convert double numbers into binary values 
+% corresponding to the number of bits will consider
 function bin = numbConv(x)
+    
     y = round(25.5*x);
     bin = de2bi(y);
     

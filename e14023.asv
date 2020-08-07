@@ -19,7 +19,10 @@ ylabel('J(x)');
 % x = binNumbInv(bin) - converts binary string into double value
 
 numOfPop = 8;
+
 pop = round(rand(1,numOfPop)*10,1);     % generate initial population
+
+for z = 1:10
 Jo = Jx(pop);
 hold on;
 plot(pop,Jo,'rv','MarkerSize',5,'LineWidth',2);
@@ -50,10 +53,26 @@ for p = 1:2:length(selected_pop)
     mother_bin = numbConv(mother);
     father_bin = numbConv(father);
     
-    crossover_point = 1 + round(rand(1,1)*4); % crossover will happen binary locations 1 
+    crossover_point = 1 + round(rand(1,1)*4); % crossover will happen binary locations 1 to 5
+    
+    mother_bin_new = [ mother_bin(1:crossover_point) father_bin(crossover_point+1:end)];
+    father_bin_new = [ father_bin(1:crossover_point) mother_bin(crossover_point+1:end)];
+    
+%     intermediate_pop = [binNumbInv(mother_bin_new) binNumbInv(father_bin_new)];
+%     new_pop = [new_pop intermediate_pop];
+    new_pop(p) = binNumbInv(mother_bin_new);
+    new_pop(p+1) = binNumbInv(father_bin_new);
+    
 end
 
-figure(1);plot(selected_pop,Jx(selected_pop),'go')
+intermediate_pop = [pop new_pop];
+
+% Mutuation
+intermediate_Jo = Jx(intermediate_pop);
+intermediate_csf = costF(intermediate_Jo);
+intermediate_csf_sort = sort(intermediate_csf,'descend');
+pop = intermediate_csf_sort(1:length(intermediate_csf_sort)/2); % remove less cost values
 
 
+end
 

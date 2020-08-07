@@ -2,7 +2,8 @@
 % corresponding to the number of bits will consider
 function bin = numbConv(x)
     
-    y = round(25.5*x);
+    y = round(25.5*x);  % y = (255/10)*x 
+                        % 255 = (2^8 - 1) which is contized levels 
     bin = de2bi(y);
     
     % fill remainings as zero

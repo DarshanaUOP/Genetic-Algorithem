@@ -22,7 +22,7 @@ numOfPop = 8;
 
 pop = round(rand(1,numOfPop)*10,1);     % generate initial population
 
-for z = 1:50
+for z = 1:20
     figure(1);
     plot(x,J)
     Jo = Jx(pop);
@@ -31,8 +31,8 @@ for z = 1:50
     
     plot(pop,Jo,'rv','MarkerSize',5,'LineWidth',2);
     hold off;
+    
     % Meting pool
-
     csf = costF(Jo,'min');
     
     % stem(pop,csf)

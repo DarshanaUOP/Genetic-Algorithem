@@ -7,7 +7,7 @@ close all;
 % J(x) = 3*x.^2 + 0.5*x.^3 - 40*x +40*cos(pi*x);
 x = 0:0.1:10;
 J = Jx(x);
-figure;
+figure(1);
 plot(x,J)
 grid minor;
 title('The cost function');
@@ -22,23 +22,27 @@ numOfPop = 8;
 
 pop = round(rand(1,numOfPop)*10,1);     % generate initial population
 
-for z = 1:20
+stop_val = 10;      
+ittr_count = 0;
+min_variance = 0.012;                   % minimum variance for stop itterations
+while(stop_val>min_variance)
     figure(1);
     plot(x,J)
     Jo = Jx(pop);
     hold on;
     grid minor;
-    
+    title('The cost function');
+    xlabel('x');
+    ylabel('J(x)');
+
     plot(pop,Jo,'rv','MarkerSize',5,'LineWidth',2);
     hold off;
     
     % Meting pool
     csf = costF(Jo,'min');
     
-    % stem(pop,csf)
     prob_weight = csf/sum(csf);
-    % bar(prob_weight)
-
+    
     % sort according to probability
     [b,I] = sort(prob_weight,'descend');
     % Roulet wheel mechanism
@@ -57,7 +61,7 @@ for z = 1:20
         mother_bin = numbConv(mother);
         father_bin = numbConv(father);
 
-        crossover_point = 1 + round(rand(1,1)*4); % crossover will happen binary locations 1 to 5
+        crossover_point = 1 + round(rand(1,1)*5); % crossover will happen binary locations 1 to 5
 
         mother_bin_new = [ mother_bin(1:crossover_point) father_bin(crossover_point+1:end)];
         father_bin_new = [ father_bin(1:crossover_point) mother_bin(crossover_point+1:end)];
@@ -74,7 +78,10 @@ for z = 1:20
     intermediate_csf = costF(intermediate_Jo,'min');
     intermediate_csf_sort = sort(intermediate_csf,'descend');
     pop = intermediate_csf_sort(1:length(intermediate_csf_sort)/2); % remove less costie values
-
-    pause(1)
+    
+    stop_val = var(pop);            % Stopping criteria defined as lesser variance
+    ittr_count = ittr_count + 1 ;
+    pause(0.25)
 end
 
+fprintf('Local Minima : %.4f found in %d itterations\n',min(costF(Jx(pop),'min')),ittr_count);

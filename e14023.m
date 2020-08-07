@@ -22,11 +22,12 @@ numOfPop = 8;
 
 pop = round(rand(1,numOfPop)*10,1);     % generate initial population
 
-for z = 1:10
+for z = 1:20
     figure(1);
     plot(x,J)
     Jo = Jx(pop);
     hold on;
+    grid minor;
     
     plot(pop,Jo,'rv','MarkerSize',5,'LineWidth',2);
     hold off;
@@ -36,7 +37,7 @@ for z = 1:10
     
     % stem(pop,csf)
     prob_weight = csf/sum(csf);
-%     bar(prob_weight)
+    % bar(prob_weight)
 
     % sort according to probability
     [b,I] = sort(prob_weight,'descend');
@@ -61,8 +62,6 @@ for z = 1:10
         mother_bin_new = [ mother_bin(1:crossover_point) father_bin(crossover_point+1:end)];
         father_bin_new = [ father_bin(1:crossover_point) mother_bin(crossover_point+1:end)];
 
-    %     intermediate_pop = [binNumbInv(mother_bin_new) binNumbInv(father_bin_new)];
-    %     new_pop = [new_pop intermediate_pop];
         new_pop(p) = binNumbInv(mother_bin_new);
         new_pop(p+1) = binNumbInv(father_bin_new);
 

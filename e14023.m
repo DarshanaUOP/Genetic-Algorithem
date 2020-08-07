@@ -60,10 +60,10 @@ for p = 1:2:length(selected_pop)
     new_pop(p) = binNumbInv(mother_bin_new);
     new_pop(p+1) = binNumbInv(father_bin_new);
     
-
 end
 
-figure(1);plot(selected_pop,Jx(selected_pop),'go')
+intermediate_pop = [pop new_pop];
+
 
 
 

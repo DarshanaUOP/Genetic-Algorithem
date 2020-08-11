@@ -1,4 +1,4 @@
-# Genetic-Algorithem
+# Genetic Algorithem
 
 ### DESCRIPTION
 Genetic Algorithem with Matlab

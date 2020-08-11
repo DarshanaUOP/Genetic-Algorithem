@@ -1,7 +1,7 @@
-# Genetic Algorithem
+# Genetic Algorithm
 
 ### DESCRIPTION
-Genetic Algorithem (GA) with Matlab
+Genetic Algorithm (GA) with Matlab
 <img src="https://github.com/DarshanaUOP/Genetic-Algorithem/raw/master/results.jpg" width = 80%>
 
 To run the code on your computer, [clone the repository](https://github.com/DarshanaUOP/Genetic-Algorithem/archive/master.zip) and run [index.m](https://github.com/DarshanaUOP/Genetic-Algorithem/blob/master/index.m) on MatLab environment.

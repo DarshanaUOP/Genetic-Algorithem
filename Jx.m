@@ -1,4 +1,4 @@
-% The function
+% The function to find optimum point
 
 function Jo = Jx(x)
     X = x;

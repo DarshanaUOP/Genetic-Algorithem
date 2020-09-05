@@ -1,5 +1,8 @@
 # Genetic Algorithm
 
+### WHAT IS GENETIC ALGORITHM
+"A genetic algorithm (GA) is a method for solving both constrained and unconstrained optimization problems based on a natural selection process that mimics biological evolution."
+
 ### DESCRIPTION
 Genetic Algorithm (GA) with Matlab
 <img src="https://github.com/DarshanaUOP/Genetic-Algorithem/raw/master/results.jpg" width = 80%>
